@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react'
 import { View, Text, Animated, StyleSheet } from 'react-native'
 import { Tabs } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Colors } from '@/constants/colors'
 import { useMenuContext } from '@/context/MenuDataContext'
 
@@ -46,8 +45,6 @@ function ToastBanner() {
 }
 
 export default function TabLayout() {
-  const { bottom } = useSafeAreaInsets()
-
   return (
     <View style={{ flex: 1 }}>
       <Tabs
@@ -60,8 +57,7 @@ export default function TabLayout() {
             borderTopColor: Colors.border,
             borderTopWidth: 1,
             paddingTop: 8,
-            paddingBottom: 8 + bottom,
-            height: 64 + bottom,
+            paddingBottom: 8,
           },
           tabBarLabelStyle: {
             fontSize: 11,
