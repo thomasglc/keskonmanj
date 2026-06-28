@@ -9,6 +9,7 @@ import {
   ActivityIndicator,
   StyleSheet,
   SafeAreaView,
+  Platform,
 } from 'react-native'
 import { useRouter } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
@@ -287,7 +288,7 @@ export default function PlatsScreen() {
       {/* List */}
       <ScrollView
         style={styles.scroll}
-        contentContainerStyle={styles.content}
+        contentContainerStyle={[styles.content, Platform.OS === 'web' && { paddingBottom: 32 + 64 }]}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >

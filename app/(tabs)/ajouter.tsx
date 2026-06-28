@@ -10,6 +10,7 @@ import {
   SafeAreaView,
   Dimensions,
   Animated,
+  Platform,
 } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { useMenuContext } from '@/context/MenuDataContext'
@@ -140,7 +141,7 @@ export default function AjouterScreen() {
           {/* Step 1 */}
           <ScrollView
             style={{ width: SCREEN_WIDTH }}
-            contentContainerStyle={styles.stepContent}
+            contentContainerStyle={[styles.stepContent, Platform.OS === 'web' && { paddingBottom: 48 + 64 }]}
             keyboardShouldPersistTaps="handled"
           >
             <Text style={styles.label}>Nom du plat *</Text>
@@ -303,7 +304,7 @@ export default function AjouterScreen() {
           {/* Step 2 */}
           <ScrollView
             style={{ width: SCREEN_WIDTH }}
-            contentContainerStyle={styles.stepContent}
+            contentContainerStyle={[styles.stepContent, Platform.OS === 'web' && { paddingBottom: 48 + 64 }]}
             keyboardShouldPersistTaps="handled"
           >
             <TouchableOpacity onPress={goToStep1} style={styles.backRow}>

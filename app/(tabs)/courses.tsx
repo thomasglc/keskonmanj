@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
   StyleSheet,
   SafeAreaView,
+  Platform,
 } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { useMenuContext } from '@/context/MenuDataContext'
@@ -175,7 +176,7 @@ export default function CoursesScreen() {
       {/* List */}
       <ScrollView
         style={styles.scroll}
-        contentContainerStyle={styles.content}
+        contentContainerStyle={[styles.content, Platform.OS === 'web' && { paddingBottom: 40 + 64 }]}
         showsVerticalScrollIndicator={false}
       >
         {ingredientIds.length === 0 ? (
