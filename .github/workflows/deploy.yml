@@ -44,13 +44,15 @@ jobs:
           node -e "
             const fs = require('fs');
             const path = 'dist/manifest.json';
-            let m = {};
-            if (fs.existsSync(path)) {
-              m = JSON.parse(fs.readFileSync(path, 'utf8'));
-            }
+            let m = fs.existsSync(path) ? JSON.parse(fs.readFileSync(path, 'utf8')) : {};
+            m.name = m.name || 'Kèskonmanj';
+            m.short_name = m.short_name || 'Kèskonmanj';
             m.display = 'standalone';
             m.start_url = '/';
             m.orientation = 'portrait';
+            m.background_color = m.background_color || '#ffffff';
+            m.theme_color = m.theme_color || '#ffffff';
+            m.icons = [{ src: '/assets/icon.png', sizes: '512x512', type: 'image/png' }];
             fs.writeFileSync(path, JSON.stringify(m, null, 2));
             console.log('Manifest:', JSON.stringify(m, null, 2));
           "

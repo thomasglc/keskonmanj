@@ -12,10 +12,14 @@ export default function Root({ children }: PropsWithChildren) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
         />
 
+        {/* PWA manifest */}
+        <link rel="manifest" href="/manifest.json" />
+
         {/* iOS PWA standalone mode */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Kèskonmanj" />
+        <link rel="apple-touch-icon" href="/assets/icon.png" />
 
         {/* Android PWA */}
         <meta name="mobile-web-app-capable" content="yes" />
