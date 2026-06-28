@@ -13,8 +13,7 @@
       "expo-router"
     ],
     "experiments": {
-      "typedRoutes": true,
-      "baseUrl": "/keskonmanj"
+      "typedRoutes": true
     }
   }
 }
