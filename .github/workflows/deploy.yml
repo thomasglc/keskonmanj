@@ -33,6 +33,28 @@ jobs:
         env:
           EXPO_PUBLIC_DIRECTUS_URL: ${{ secrets.DIRECTUS_URL }}
 
+      - name: Debug dist structure
+        run: |
+          echo "=== dist root ===" && ls dist/
+          echo "=== manifest ===" && cat dist/manifest.json 2>/dev/null || echo "no manifest.json"
+          echo "=== index.html head ===" && head -30 dist/index.html 2>/dev/null || echo "no index.html"
+
+      - name: Patch manifest for PWA standalone mode
+        run: |
+          node -e "
+            const fs = require('fs');
+            const path = 'dist/manifest.json';
+            let m = {};
+            if (fs.existsSync(path)) {
+              m = JSON.parse(fs.readFileSync(path, 'utf8'));
+            }
+            m.display = 'standalone';
+            m.start_url = '/';
+            m.orientation = 'portrait';
+            fs.writeFileSync(path, JSON.stringify(m, null, 2));
+            console.log('Manifest:', JSON.stringify(m, null, 2));
+          "
+
       - name: Add .nojekyll
         run: touch dist/.nojekyll
 
