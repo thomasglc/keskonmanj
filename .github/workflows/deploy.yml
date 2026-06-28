@@ -32,6 +32,7 @@ jobs:
         run: npx expo export -p web
         env:
           EXPO_PUBLIC_BASE_URL: /${{ github.event.repository.name }}
+          EXPO_PUBLIC_DIRECTUS_URL: ${{ secrets.DIRECTUS_URL }}
 
       - name: Add .nojekyll
         run: touch dist/.nojekyll

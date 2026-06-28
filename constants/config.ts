@@ -1,5 +1,4 @@
-export const DIRECTUS_URL = 'https://back-keskonmanj.galocha.fr'
-export const DIRECTUS_TOKEN = '8ALm_B_kUZRSFRFXsYao_ugUOqKii-g4'
+export const DIRECTUS_URL = process.env.EXPO_PUBLIC_DIRECTUS_URL ?? ''
 
 export const DAYS = [
   'Lundi',

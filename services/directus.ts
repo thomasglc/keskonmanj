@@ -1,8 +1,7 @@
-import { DIRECTUS_URL, DIRECTUS_TOKEN } from '@/constants/config'
+import { DIRECTUS_URL } from '@/constants/config'
 import type { Dish, MenuData, IngredientsData } from '@/types'
 
 const HEADERS = {
-  Authorization: `Bearer ${DIRECTUS_TOKEN}`,
   'Content-Type': 'application/json',
 }
 
